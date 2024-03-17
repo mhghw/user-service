@@ -1,0 +1,5 @@
+[bootstrap]
+    port = 8080
+    isDevelopment = true
+[db]
+    dsn = "postgresql://postgres:qwerqwer@localhost:5432/test?sslmode=disable"

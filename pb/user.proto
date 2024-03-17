@@ -1,0 +1,43 @@
+syntax = "proto3";
+package user;
+option go_package = "github.com/mhghw/user-service/pb/gen/user";
+
+import "google/protobuf/empty.proto";
+
+
+service UserService{
+   rpc CreateUser(CreateUserRequest)returns(CreateUserResponse){}
+   rpc ChangeUsername(ChangeUsernameRequest)returns(google.protobuf.Empty){}
+   rpc DeleteUser(DeleteUserRequest)returns(google.protobuf.Empty){}
+   rpc GetUser(GetUserRequest)returns(User){}
+}
+
+message CreateUserRequest{
+    string username = 1;
+    string firstname = 2;
+    string lastname = 3;
+}
+
+message CreateUserResponse{
+    string user_id = 1;
+}
+
+message ChangeUsernameRequest{
+    string user_id = 1;
+    string username = 2;
+}
+
+message DeleteUserRequest{
+    string user_id = 1;
+}
+
+message GetUserRequest{
+    string user_id = 1;
+}
+
+message User{
+    string id = 1;
+    string username = 2;
+    string firstname = 3;
+    string lastname = 4;
+}
